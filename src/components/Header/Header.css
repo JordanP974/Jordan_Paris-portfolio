@@ -26,10 +26,30 @@
 .brand span {
   color: var(--accent);
 }
+
+/* Mobile : nav masquée par défaut, visible en dropdown quand ouverte */
 .nav-links {
+  display: none;
+}
+.nav-links.open {
   display: flex;
-  gap: 26px;
-  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  gap: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 8px var(--gut);
+}
+.nav-links.open a {
+  padding: 12px 0;
+  font-size: 15px;
+}
+.nav-links.open .status {
+  align-self: flex-start;
+  margin: 8px 0;
 }
 .nav-links a {
   font-family: var(--mono);
@@ -40,6 +60,7 @@
 .nav-links a:hover {
   color: var(--ink);
 }
+
 .status {
   display: inline-flex;
   align-items: center;
@@ -60,23 +81,20 @@
   animation: pulse 2.4s infinite;
 }
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.45);
-  }
-  70% {
-    box-shadow: 0 0 0 7px rgba(212, 160, 23, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(212, 160, 23, 0);
-  }
+  0%   { box-shadow: 0 0 0 0   rgba(212, 160, 23, 0.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(212, 160, 23, 0);    }
+  100% { box-shadow: 0 0 0 0   rgba(212, 160, 23, 0);    }
 }
+
 .nav-end {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
+/* Mobile : bouton menu visible par défaut */
 .nav-toggle {
-  display: none;
+  display: inline-flex;
   background: none;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -86,6 +104,7 @@
   font-size: 12px;
   color: var(--ink);
 }
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -103,31 +122,14 @@
   border-color: var(--accent);
 }
 
-@media (max-width: 760px) {
+/* Desktop : nav en ligne, bouton menu masqué */
+@media (min-width: 760px) {
   .nav-links {
-    display: none;
-  }
-  .nav-links.open {
     display: flex;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 0;
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
-    padding: 8px var(--gut);
-  }
-  .nav-links.open a {
-    padding: 12px 0;
-    font-size: 15px;
-  }
-  .nav-links.open .status {
-    align-self: flex-start;
-    margin: 8px 0;
+    gap: 26px;
+    align-items: center;
   }
   .nav-toggle {
-    display: inline-flex;
+    display: none;
   }
 }

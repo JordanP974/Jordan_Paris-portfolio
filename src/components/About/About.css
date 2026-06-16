@@ -1,7 +1,7 @@
 .about-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr;
+  gap: 24px;
 }
 .about-grid p {
   margin-bottom: 18px;
@@ -45,4 +45,11 @@
 .fact span:last-child {
   font-weight: 500;
   text-align: right;
+}
+
+@media (min-width: 760px) {
+  .about-grid {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+  }
 }

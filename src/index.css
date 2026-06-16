@@ -77,9 +77,11 @@ h1 {
   font-size: clamp(38px, 6.4vw, 76px);
   line-height: 1;
   letter-spacing: -0.025em;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    margin: 20px 0;
+  margin: 20px 0;
+}
+@media (min-width: 1024px) {
+  h1 {
+    margin: 32px 0;
   }
 }
 h2 {
