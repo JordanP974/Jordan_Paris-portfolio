@@ -1,4 +1,3 @@
-
 import './Hero.css';
 
 function Hero() {
@@ -15,9 +14,15 @@ function Hero() {
       </p>
 
       <div className="cta-row reveal">
-        <a href={'#projets'} className={'btn btn-primary'}>Voir mes projets</a>
-        <a href={'#contact'} className={'btn btn-ghost'}>Me Contacter</a>
-        <a href="/cv.pdf" download="CV_Jordan_Paris.pdf" className={'btn btn-ghost'}>Télécharger le CV</a>
+        <a href={'#projets'} className={'btn btn-primary'}>
+          Voir mes projets
+        </a>
+        <a href={'#contact'} className={'btn btn-ghost'}>
+          Me Contacter
+        </a>
+        <a href="/CV_Jordan_Paris.pdf" download className={'btn btn-ghost'}>
+          Télécharger le CV
+        </a>
       </div>
       <div className="hero-meta reveal">
         <span>
