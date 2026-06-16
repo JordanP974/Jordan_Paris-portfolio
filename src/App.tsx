@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import './App.css';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
@@ -42,6 +43,7 @@ function App() {
       <Timelines />
       <Contact />
       <Footer />
+      <SpeedInsights />
     </>
   );
 }
