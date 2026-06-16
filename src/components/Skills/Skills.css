@@ -17,6 +17,9 @@
   gap: 8px;
 }
 .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--mono);
   font-size: 13px;
   padding: 6px 12px;
@@ -32,6 +35,10 @@
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
+}
+.tag svg {
+  flex-shrink: 0;
+  font-size: 14px;
 }
 
 @media (min-width: 760px) {

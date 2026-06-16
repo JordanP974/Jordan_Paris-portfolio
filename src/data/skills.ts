@@ -7,7 +7,7 @@ export  const skills = [
 
   {
     title: 'Backend',
-    technologies: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB',"GraphQL", 'EJS'],
+    technologies: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB',"GraphQL", 'EJS', "Prisma", "Sequelize"],
   },
 
   {
