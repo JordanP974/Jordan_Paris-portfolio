@@ -20,7 +20,7 @@ function Hero() {
         <a href={'#contact'} className={'btn btn-ghost'}>
           Me Contacter
         </a>
-        <a href="/CV_Jordan_Paris.pdf" download className={'btn btn-ghost'}>
+        <a href="/cv.pdf" download="/CV_Jordan_Paris.pdf" className={'btn btn-ghost'}>
           Télécharger le CV
         </a>
       </div>
