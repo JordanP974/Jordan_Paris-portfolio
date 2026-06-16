@@ -7,7 +7,7 @@ function Skills() {
     <section className="block" id="competences">
       <div className="wrap">
         <div className="sec-head reveal">
-          <span className="num">02</span>
+          <span className="num" aria-hidden="true">02</span>
           <h2>Compétences</h2>
         </div>
         <div className="skills-grid">

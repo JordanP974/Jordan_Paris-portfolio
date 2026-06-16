@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import './App.css';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
@@ -35,14 +35,17 @@ function App() {
 
   return (
     <>
+      <a href="#top" className="skip-link">Aller au contenu principal</a>
       <Header theme={theme} onToggleTheme={toggle} />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Timelines />
-      <Contact />
-      <Footer />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Timelines />
+        <Contact />
+      </main>
+      <Footer theme={theme} />
       <SpeedInsights />
     </>
   );

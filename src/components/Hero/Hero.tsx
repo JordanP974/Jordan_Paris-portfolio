@@ -17,7 +17,7 @@ function Hero() {
       <div className="cta-row reveal">
         <a href={'#projets'} className={'btn btn-primary'}>Voir mes projets</a>
         <a href={'#contact'} className={'btn btn-ghost'}>Me Contacter</a>
-        <a href={'/#'} className={'btn btn-ghost'}>Télécharger le CV </a>
+        <a href="/cv.pdf" download="CV_Jordan_Paris.pdf" className={'btn btn-ghost'}>Télécharger le CV</a>
       </div>
       <div className="hero-meta reveal">
         <span>

@@ -5,14 +5,14 @@ function Timelines() {
   <section className="block" id="parcours">
     <div className="wrap">
       <div className="sec-head reveal">
-        <span className="num">04</span>
+        <span className="num" aria-hidden="true">04</span>
         <h2>Parcours</h2>
       </div>
       <div className="timeline">
         <div className="tl-col reveal">
           <h3>Formation</h3>
           <div className="tl-item">
-            <div className="tl-when">2024 — 2027</div>
+            <div className="tl-when">2025 — 2026</div>
             <div className="tl-what">
               <h4>Formation Concepteur Développeur Web et Application (CDA)</h4>
               <p>Ecole O'clock — parcours développement web et d'applications.</p>

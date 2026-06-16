@@ -5,7 +5,7 @@ function About() {
     <section className="block" id="apropos">
       <div className="wrap">
         <div className="sec-head reveal">
-          <span className="num">01</span>
+          <span className="num" aria-hidden="true">01</span>
           <h2>À propos</h2>
         </div>
         <div className="about-grid">

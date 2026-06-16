@@ -5,7 +5,7 @@ function Projects() {
     <section className="block" id="projets">
       <div className="wrap">
         <div className="sec-head reveal">
-          <span className="num">03</span>
+          <span className="num" aria-hidden="true">03</span>
           <h2>Projets</h2>
         </div>
         <div className="proj-index reveal">
@@ -27,10 +27,10 @@ function Projects() {
             </div>
             <div className="proj-links">
               <a href="#">
-                Démo <span className="arr">↗</span>
+                Démo <span className="arr" aria-hidden="true">↗</span>
               </a>
               <a href="#">
-                Code <span className="arr">↗</span>
+                Code <span className="arr" aria-hidden="true">↗</span>
               </a>
             </div>
           </article>

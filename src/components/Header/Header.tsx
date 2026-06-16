@@ -30,7 +30,7 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
             />
             {profile.first_name} <span>.</span> {profile.last_name}
           </NavLink>
-          <div className={`nav-links${isOpen ? ' open' : ''}`}>
+          <div className={`nav-links${isOpen ? ' open' : ''}`} id="nav-links">
             <a href="#apropos" onClick={closeMenu}>
               à propos
             </a>
@@ -62,6 +62,7 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
               className="nav-toggle"
               aria-label="Menu"
               aria-expanded={isOpen}
+              aria-controls="nav-links"
               onClick={() => setIsOpen((open) => !open)}
             >
               menu

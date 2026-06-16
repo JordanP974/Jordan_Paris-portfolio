@@ -1,6 +1,6 @@
 # Portfolio — Jordan Paris
 
-Portfolio personnel de développeur web Full Stack, construit avec React 19, TypeScript et Vite.
+Portfolio personnel de développeur web Full Stack, construit avec React 19, TypeScript et Vite. Déployé sur [jordan-paris-portfolio.vercel.app](https://jordan-paris-portfolio.vercel.app).
 
 ## Stack technique
 
@@ -10,99 +10,101 @@ Portfolio personnel de développeur web Full Stack, construit avec React 19, Typ
 | TypeScript | ~6.0 | Typage statique |
 | Vite | 8 | Bundler / dev server |
 | React Router DOM | 7 | Navigation client |
-| Hanken Grotesk | — | Police corps de texte |
-| Space Grotesk | — | Police titres |
-| JetBrains Mono | — | Police monospace / code |
+| lucide-react | — | Icônes (soleil / lune) |
+| react-icons | — | Icônes contact (GitHub, email, téléphone) |
+| @vercel/speed-insights | — | Métriques de performance Vercel |
+
+**Polices** (Google Fonts) : Space Grotesk · Hanken Grotesk · JetBrains Mono
 
 ## Démarrage rapide
 
 ```bash
-# Installer les dépendances
-pnpm install   # ou npm install
-
-# Lancer le serveur de développement
-pnpm dev       # ou npm run dev
-
-# Build de production
-pnpm build     # ou npm run build
-
-# Prévisualiser le build
-pnpm preview   # ou npm run preview
+pnpm install     # installer les dépendances
+pnpm dev         # lancer le serveur de développement
+pnpm build       # build de production
+pnpm preview     # prévisualiser le build
 ```
 
 ## Structure du projet
 
 ```
 portfolio/
-├── index.html                    # Point d'entrée HTML + imports Google Fonts
+├── index.html                        # Point d'entrée HTML, lang="fr", meta viewport
+├── public/
+│   └── logo-monogram-caret.svg       # Favicon
 ├── src/
-│   ├── main.tsx                  # Initialisation React + BrowserRouter
-│   ├── App.tsx                   # Composition des sections
-│   ├── index.css                 # Variables CSS globales, reset, typographie
-│   ├── App.css                   # Styles des blocs de section (.block, .sec-head)
+│   ├── main.tsx                      # Initialisation React + BrowserRouter
+│   ├── App.tsx                       # Composition des sections + skip link + <main>
+│   ├── index.css                     # Variables CSS (dark/light), reset, typographie
+│   ├── App.css                       # Styles partagés (.block, .sec-head, .reveal)
+│   ├── assets/
+│   │   ├── logo-monogram-dark.svg    # Logo monogramme — thème sombre
+│   │   └── logo-monogram-light.svg   # Logo monogramme — thème clair
+│   ├── hooks/
+│   │   └── useTheme.ts               # Hook dark/light mode + persistance localStorage
 │   ├── @types/
-│   │   └── index.d.tsx           # Interfaces TypeScript (ISkills)
+│   │   └── index.d.tsx               # Interfaces TypeScript (ISkills)
 │   ├── data/
-│   │   ├── profile.ts            # Données personnelles (nom, email, liens)
-│   │   └── skills.ts             # Liste des compétences par catégorie
+│   │   ├── profile.ts                # Données personnelles (nom, email, liens)
+│   │   └── skills.ts                 # Compétences par catégorie
 │   └── components/
-│       ├── Header/               # Barre de navigation sticky (responsive)
-│       ├── Hero/                 # Section d'accroche principale
-│       ├── About/                # Section "À propos" + fiche récapitulative
-│       ├── Skills/               # Grille de compétences avec tags
-│       └── Footer/               # Pied de page avec liens de contact
+│       ├── Header/                   # Nav sticky, logo adaptatif, toggle dark/light
+│       ├── Hero/                     # Accroche, CTA, métadonnées
+│       ├── About/                    # Présentation + fiche récapitulative
+│       ├── Skills/                   # Grille de compétences avec tags
+│       ├── Projects/                 # Liste de projets (année, stack, liens)
+│       ├── Timelines/                # Parcours formation & expérience
+│       ├── Contact/                  # CTA email + liens sociaux
+│       └── Footer/                   # Pied de page + navigation secondaire
 ```
 
-## Composants
+## Fonctionnalités
 
-### `Header`
-Navigation sticky avec fond flou (`backdrop-filter`). Sur mobile (< 760px) les liens se masquent et un bouton "menu" ouvre un panneau déroulant. L'état du menu est géré par `useState`. Affiche un badge de disponibilité avec animation pulse.
-
-### `Hero`
-Section principale avec titre, sous-titre, boutons CTA et métadonnées (localisation, formation). Les titres utilisent `clamp()` pour être responsive sans media queries.
-
-### `About`
-Grille à 2 colonnes : texte de présentation à gauche, fiche rapide (focus, langues, disponibilité) à droite dans une carte.
-
-### `Skills`
-Grille de catégories de compétences (Langages, Frontend, Backend, DevOps, Méthodologies). Chaque catégorie affiche ses technologies sous forme de tags interactifs.
-
-### `Footer`
-Informations de contact (email, téléphone, GitHub) et mention de copyright.
+- **Dark / Light mode** — toggle dans le header, persisté en `localStorage`, transition CSS fluide
+- **Mobile-first** — CSS en `min-width`, menu burger sur mobile
+- **Animations au scroll** — `IntersectionObserver` sur les éléments `.reveal`
+- **Logo adaptatif** — monogramme SVG qui change selon le thème
+- **Accessibilité** — `lang="fr"`, skip link, `<main>`, `aria-hidden` sur éléments décoratifs, `aria-expanded` + `aria-controls` sur le menu mobile, `prefers-reduced-motion`
 
 ## Personnalisation
 
-Toutes les données personnelles sont centralisées dans `src/data/` — aucune modification de composant nécessaire pour mettre à jour le contenu.
+Toutes les données personnelles sont dans `src/data/profile.ts` :
 
-### Modifier les couleurs
-Les couleurs sont définies via des variables CSS dans `src/index.css` :
-
-```css
-:root {
-  --paper:       #F4F4F1;  /* fond principal */
-  --ink:         #17181A;  /* texte principal */
-  --slate:       #6E7177;  /* texte secondaire */
-  --accent:      #3540D9;  /* couleur d'accentuation (bleu) */
-  --green:       #3FA66A;  /* indicateur de disponibilité */
-  --line:        #E2E2DC;  /* bordures */
+```ts
+export const profile = {
+  first_name: "Jordan",
+  last_name:  "Paris",
+  email:      "paris.jordan@proton.me",
+  phone:      "0767730522",
+  github:     "https://github.com/JordanP974",
+  linkedin:   "www.linkedin.com/in/jordan-paris-221650265",
 }
 ```
 
-## Polices
+### Couleurs (CSS variables)
 
-Chargées depuis Google Fonts dans `index.html` :
+```css
+/* Thème sombre (défaut) */
+:root {
+  --paper:   #0B0B0B;   /* fond principal */
+  --paper-2: #151515;   /* fond secondaire (cards) */
+  --ink:     #F5F5F5;   /* texte principal */
+  --slate:   #D4A017;   /* texte secondaire */
+  --line:    #E2E2DC;   /* bordures */
+  --accent:  #D4A017;   /* couleur d'accentuation */
+}
 
+/* Thème clair */
+[data-theme="light"] {
+  --paper:   #F7F6F1;
+  --paper-2: #E8E7DF;
+  --ink:     #0D0C0A;
+  --slate:   #55534C;
+  --line:    #BFBDB5;
+  --accent:  #A07808;
+}
 ```
-Space Grotesk    → titres (h1, h2)
-Hanken Grotesk   → corps de texte (body)
-JetBrains Mono   → code, navigation, labels, tags
-```
 
-## Points à compléter
+## Déploiement
 
-- [ ] Ajouter la section **Projets** (section 03)
-- [ ] Ajouter la section **Parcours** / timeline (section 04)
-- [ ] Implémenter la section **Contact** avec formulaire
-- [ ] Câbler les vraies routes dans les `NavLink` (actuellement tous à `/#`)
-- [ ] Implémenter les animations `.reveal` au scroll (Intersection Observer)
-- [ ] Ajouter le menu mobile responsive (`@media (max-width: 760px)`)
+Le projet est déployé automatiquement sur **Vercel** à chaque `git push` sur `main`.
