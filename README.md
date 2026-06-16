@@ -66,44 +66,7 @@ portfolio/
 - **Logo adaptatif** — monogramme SVG qui change selon le thème
 - **Accessibilité** — `lang="fr"`, skip link, `<main>`, `aria-hidden` sur éléments décoratifs, `aria-expanded` + `aria-controls` sur le menu mobile, `prefers-reduced-motion`
 
-## Personnalisation
 
-Toutes les données personnelles sont dans `src/data/profile.ts` :
-
-```ts
-export const profile = {
-  first_name: "Jordan",
-  last_name:  "Paris",
-  email:      "paris.jordan@proton.me",
-  phone:      "0767730522",
-  github:     "https://github.com/JordanP974",
-  linkedin:   "www.linkedin.com/in/jordan-paris-221650265",
-}
-```
-
-### Couleurs (CSS variables)
-
-```css
-/* Thème sombre (défaut) */
-:root {
-  --paper:   #0B0B0B;   /* fond principal */
-  --paper-2: #151515;   /* fond secondaire (cards) */
-  --ink:     #F5F5F5;   /* texte principal */
-  --slate:   #D4A017;   /* texte secondaire */
-  --line:    #E2E2DC;   /* bordures */
-  --accent:  #D4A017;   /* couleur d'accentuation */
-}
-
-/* Thème clair */
-[data-theme="light"] {
-  --paper:   #F7F6F1;
-  --paper-2: #E8E7DF;
-  --ink:     #0D0C0A;
-  --slate:   #55534C;
-  --line:    #BFBDB5;
-  --accent:  #A07808;
-}
-```
 
 ## Déploiement
 
